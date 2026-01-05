@@ -41,7 +41,7 @@ jobs:
           ls -lh ../../build_output/
 
       - name: Upload x86_64 build artifacts
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: bisheng-telemetry-search-x86_64
           path: ./build_output/*
