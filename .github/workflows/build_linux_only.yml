@@ -3,8 +3,8 @@ name: Build Linux Binaries (x86_64 & ARM)
 on:
   workflow_dispatch:
   push:
-    tags:
-      - 'build.*'
+    branches:
+      - test/build
 
 jobs:
   build_x86_64:
@@ -25,8 +25,8 @@ jobs:
 
       - name: Install build dependencies
         run: |
-          apt-get update
-          apt-get install -y build-essential
+          sudo apt-get update
+          sudo apt-get install -y build-essential
           pip install --upgrade pip setuptools wheel
           pip install cython
 
