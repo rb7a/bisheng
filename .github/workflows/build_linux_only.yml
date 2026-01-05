@@ -143,7 +143,7 @@ jobs:
           cp -r ./telemetry_search_x86_64/* ./telemetry_search_merged/
           
           # 2. 再复制 ARM 文件 (不会覆盖 .so，因为文件名包含架构信息；会覆盖 .py，但应该是一样的)
-          cp -r ./telemetry_search_arm/* ./telemetry_search_merged/
+          cp -r ./telemetry_search_arm/* ./telemetry_search/
           
           # 3. [最后一道防线] 再次清理可能的垃圾文件
           find ./telemetry_search -name "*.c" -delete
