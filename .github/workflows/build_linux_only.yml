@@ -140,7 +140,7 @@ jobs:
           mkdir -p ./telemetry_search
           
           # 1. 先复制 x86_64 文件
-          cp -r ./telemetry_search_x86_64/* ./telemetry_search_merged/
+          cp -r ./telemetry_search_x86_64/* ./telemetry_search/
           
           # 2. 再复制 ARM 文件 (不会覆盖 .so，因为文件名包含架构信息；会覆盖 .py，但应该是一样的)
           cp -r ./telemetry_search_arm/* ./telemetry_search/
