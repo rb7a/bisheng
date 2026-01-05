@@ -31,7 +31,7 @@ jobs:
           pip install cython
 
       - name: Build the project
-        working-directory: ./bisheng-telemetry-search
+        working-directory: ./bisheng-telemetry-search/telemetry_search
         run: |
           pwd
           ls -lh
