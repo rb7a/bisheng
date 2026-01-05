@@ -33,6 +33,8 @@ jobs:
       - name: Build the project
         working-directory: ./bisheng-telemetry-search
         run: |
+          pwd
+          ls -lh
           python build_all.py --delete-source
           ls -lh
           
