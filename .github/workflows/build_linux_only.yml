@@ -33,10 +33,10 @@ jobs:
       - name: Build and Clean Artifacts
         working-directory: ./bisheng-telemetry-search/telemetry_search
         run: |
-          # 1. 执行构建
+          # 执行构建
           python build_all.py --delete-source
           
-          # 2. [关键] 在上传前彻底清理源代码和中间文件
+          # 在上传前彻底清理源代码和中间文件
           # 即使 build_all.py 做了清理，这里再次强制清理，防止 .c 文件泄露
           find . -name "*.c" -delete
           find . -name "*.cpp" -delete
@@ -44,7 +44,7 @@ jobs:
           rm -rf ./build
           rm -f build_all.py setup.py # 删除构建脚本本身
           
-          # 3. 准备输出
+          # 准备输出
           mkdir ../../build_output
           cp -r ./* ../../build_output/
           
