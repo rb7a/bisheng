@@ -43,7 +43,7 @@ jobs:
       - name: Upload x86_64 build artifacts
         uses: actions/upload-artifact@v4
         with:
-          name: telemetry_search
+          name: telemetry_search-x86_64
           path: ./build_output/*
 
   build_arm:
@@ -82,7 +82,7 @@ jobs:
       - name: Upload ARM build artifacts
         uses: actions/upload-artifact@v4
         with:
-          name: telemetry_search
+          name: telemetry_search-arm
           path: ./build_output/*
 
 
@@ -99,14 +99,26 @@ jobs:
           base: feat/2.3.0
           path: bisheng
 
-      - name: Download build artifacts
+      - name: Download x86_64 build artifacts
         uses: actions/download-artifact@v4
         with:
-          name: telemetry_search
-          path: ./telemetry_search
+          name: telemetry_search-x86_64
+          path: ./telemetry_search_x86_64
+
+      - name: Download ARM build artifacts
+        uses: actions/download-artifact@v4
+        with:
+          name: telemetry_search-arm
+          path: ./telemetry_search_arm
 
       - name: copy files
         run: |
+          ls -lh ./telemetry_search_x86_64
+          ls -lh ./telemetry_search_arm
+          
+          mkdir ./telemetry_search
+          cp -r ./telemetry_search_x86_64/* ./telemetry_search/
+          cp -r ./telemetry_search_arm/* ./telemetry_search/
           ls -lh ./telemetry_search
           cp -r ./telemetry_search ./bisheng/src/backend/bisheng/
           ls -lh ./bisheng/src/backend/bisheng/telemetry_search
